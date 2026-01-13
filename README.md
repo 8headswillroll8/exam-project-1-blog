@@ -1,9 +1,9 @@
-#Exam Project 1 – Innova Blog
+# Exam Project 1 – Innova Blog
 
-##Description
+## Description
 Frontend blog application built with HTML, CSS, and JavaScript. The project consumes an external blog API and implements authentication, CRUD functionality, and responsive UI.
 
-##Features
+## Features
 - Blog feed with featured carousel and post grid
 - Single blog post view with shareable URL
 - Owner authentication
@@ -11,10 +11,10 @@ Frontend blog application built with HTML, CSS, and JavaScript. The project cons
 - Form validation and user feedback
 - Responsive design for desktop and mobile
 
-##Tech stack
+## Tech stack
 - HTML
 - CSS
 - JavaScript
 
-##Notes
+## Notes
 This project was created as part of Exam Project 1.
