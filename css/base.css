@@ -1,0 +1,32 @@
+/* Base layout shell, mobile first */
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-w-regular);
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+header {
+  background: var(--color-white);
+}
+
+footer {
+  background: var(--color-accent-gradient);
+  color: var(--color-white);
+}
+
+/* Basic typography */
+h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-w-bold);
+}
