@@ -17,6 +17,44 @@
     <title>Innova | Tech shaping modern life</title>
   </head>
   <body>
+    <header>
+      <nav class="navbar">
+        <!-- logo -->
+        <a href="index.html">
+          <img
+            class="logo"
+            src="./assets/graphics/innova-wordmark.svg"
+            data-dark="./assets/graphics/innova-wordmark.svg"
+            data-light="./assets/graphics/innova-wordmark-white.svg"
+            alt="Innova logo wordmark"
+        /></a>
+
+        <!-- navigation links-->
+        <ul class="nav-menu" role="list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Feed</a>
+          </li>
+
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+
+          <li class="nav-item">
+            <a href="./account/login.html" class="nav-link nav-link--login">
+              <span class="login-text">Log in</span>
+              <span class="login-icon" aria-hidden="true"
+                ><img src="./assets/graphics/log-in-icon.svg" alt=""
+              /></span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger menu icon -->
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
     <script type="module" src="./js/pages/feed.js"></script>
   </body>
 </html>

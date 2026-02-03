@@ -2,3 +2,181 @@
 @import "variables.css";
 @import "base.css";
 @import "components.css";
+
+/* ======= Header ======= */
+.logo {
+  min-width: 130px;
+  height: auto;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--container-padding);
+  z-index: 20;
+
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+/* Mavbar state when menu is open */
+.navbar.menu-open {
+  background: var(--color-accent);
+}
+
+/* Make links white when menu is open */
+.navbar.menu-open .nav-link {
+  color: var(--color-white);
+}
+
+/* Make hamburger bars white when menu is open */
+.navbar.menu-open .bar {
+  background-color: var(--color-white);
+}
+
+.nav-menu {
+  display: flex;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+
+  gap: 0;
+  padding: var(--space-8) var(--space-5);
+  flex-direction: column;
+  color: var(--color-white);
+  background: var(--color-accent-gradient), var(--color-white);
+  width: 100vw;
+  height: calc(100vh - 70px);
+  z-index: 10;
+}
+
+.nav-menu.active {
+  transform: translateX(0);
+}
+
+.nav-item {
+  margin: var(--space-4) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-w-bold);
+}
+
+.login-icon {
+  display: none;
+}
+
+/* Hamburger menu */
+.hamburger {
+  position: relative;
+  z-index: 30;
+}
+
+.login-icon img {
+  display: block;
+}
+
+/* Hamburger menu icon */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--color-white);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--color-white);
+}
+
+.bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--color-black);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  /* hide hamburger */
+  .hamburger {
+    display: none;
+  }
+
+  /* navbar stays clean on desktop */
+  .navbar {
+    background: transparent;
+  }
+
+  .navbar.menu-open {
+    background: transparent;
+  }
+
+  /* nav menu becomes inline */
+  .nav-menu {
+    position: static;
+    transform: none;
+    transition: none;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: var(--space-6);
+
+    width: auto;
+    height: auto;
+    padding: 0;
+
+    background: transparent;
+    color: var(--color-black);
+  }
+
+  .nav-menu.active {
+    transform: none;
+  }
+
+  /* list items */
+  .nav-item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-w-bold);
+  }
+
+  /* normalize link height */
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    line-height: 1;
+  }
+
+  /* login text vs icon */
+  .login-text {
+    display: none;
+  }
+
+  .login-icon {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .login-icon img {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}

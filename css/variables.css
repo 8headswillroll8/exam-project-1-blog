@@ -5,7 +5,7 @@
 
   --color-accent: #e7e7e7;
   --color-accent-gradient: linear-gradient(
-    0deg,
+    180deg,
     rgba(221, 221, 221, 0.7) 14%,
     rgba(143, 116, 39, 0.7) 36%,
     rgba(104, 61, 27, 0.7) 47%,

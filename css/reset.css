@@ -12,6 +12,11 @@ html {
   text-size-adjust: none;
 }
 
+html {
+  -webkit-font-smoothing: antialiased; /* for WebKit browsers like Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale; /* for Firefox on macOS */
+}
+
 /* Remove default margin in favour of better control in authored CSS */
 body,
 h1,
@@ -26,10 +31,29 @@ dd {
   margin-block-end: 0;
 }
 
+/* Remove link styling */
+a {
+  text-decoration: none;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
 }
 
 /* Set core body defaults */
