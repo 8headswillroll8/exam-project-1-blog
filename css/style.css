@@ -20,12 +20,11 @@
   align-items: center;
   padding: 0 var(--container-padding);
   z-index: 20;
-
   background: transparent;
   transition: background 0.3s ease;
 }
 
-/* Mavbar state when menu is open */
+/* Navbar state when menu is open */
 .navbar.menu-open {
   background: var(--color-accent);
 }
@@ -46,11 +45,9 @@
   top: 70px;
   left: 0;
   right: 0;
-
   transform: translateX(100%);
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
-
   gap: 0;
   padding: var(--space-8) var(--space-5);
   flex-direction: column;
@@ -71,18 +68,56 @@
   font-weight: var(--font-w-bold);
 }
 
-.login-icon {
+.menu-guest-text,
+.menu-guest-email {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-w-medium);
+  margin-top: 0;
+}
+
+/* content menu guest */
+.menu-guest-content {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.menu-guest-text {
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+.menu-guest-arrow {
+  font-size: var(--font-size-xl);
+}
+
+.menu-guest-email {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* Icon wrappers hidden on mobile by default */
+.login-icon,
+.create-icon,
+.logout-icon {
   display: none;
+}
+
+/* Normalize all nav icons */
+.login-icon img,
+.create-icon img,
+.logout-icon img,
+.menu-guest-content img {
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 
 /* Hamburger menu */
 .hamburger {
   position: relative;
   z-index: 30;
-}
-
-.login-icon img {
-  display: block;
 }
 
 /* Hamburger menu icon */
@@ -109,6 +144,19 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* Auth */
+.navbar [data-auth="user"] {
+  display: none;
+}
+
+.navbar.is-auth [data-auth="guest"] {
+  display: none;
+}
+
+.navbar.is-auth [data-auth="user"] {
+  display: flex;
+}
+
 @media (min-width: 768px) {
   .logo {
     width: 221px;
@@ -133,22 +181,23 @@
     position: static;
     transform: none;
     transition: none;
-
     display: flex;
     align-items: center;
     flex-direction: row;
     gap: var(--space-6);
-
     width: auto;
     height: auto;
     padding: 0;
-
     background: transparent;
     color: var(--color-black);
   }
 
   .nav-menu.active {
     transform: none;
+  }
+
+  .nav-menu .nav-item--guest-extra {
+    display: none;
   }
 
   /* list items */
@@ -168,19 +217,17 @@
     line-height: 1;
   }
 
-  /* login text vs icon */
-  .login-text {
+  /* swap text to icons on desktop */
+  .login-text,
+  .create-text,
+  .logout-text {
     display: none;
   }
 
-  .login-icon {
+  .login-icon,
+  .create-icon,
+  .logout-icon {
     display: inline-flex;
     align-items: center;
-  }
-
-  .login-icon img {
-    display: block;
-    width: 20px;
-    height: 20px;
   }
 }

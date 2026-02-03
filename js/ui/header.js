@@ -2,6 +2,13 @@ const navbar = document.querySelector(".navbar");
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 const logo = document.querySelector(".logo");
+const token = localStorage.getItem("token");
+
+if (token) {
+  navbar.classList.add("is-auth");
+} else {
+  navbar.classList.remove("is-auth");
+}
 
 hamburger.addEventListener("click", () => {
   const isOpen = navbar.classList.toggle("menu-open");
