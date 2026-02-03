@@ -5,7 +5,7 @@
 
 /* ======= Header ======= */
 .logo {
-  min-width: 130px;
+  width: 130px;
   height: auto;
 }
 
@@ -110,6 +110,10 @@
 }
 
 @media (min-width: 768px) {
+  .logo {
+    width: 221px;
+  }
+
   /* hide hamburger */
   .hamburger {
     display: none;

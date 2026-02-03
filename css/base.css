@@ -12,8 +12,7 @@ body {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
+  padding: 0 var(--container-padding);
 }
 
 header {
@@ -23,6 +22,13 @@ header {
 footer {
   background: var(--color-accent-gradient);
   color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-max-width); /* 72rem / 1152px */
+    margin-inline: auto;
+  }
 }
 
 /* Basic typography */
