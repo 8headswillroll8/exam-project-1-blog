@@ -17,6 +17,79 @@
     <title>Innova | Create post</title>
   </head>
   <body>
+    <header>
+      <nav class="navbar container">
+        <a href="index.html">
+          <img
+            class="logo"
+            src="./assets/graphics/innova-wordmark.svg"
+            data-dark="./assets/graphics/innova-wordmark.svg"
+            data-light="./assets/graphics/innova-wordmark-white.svg"
+            alt="Innova logo wordmark"
+          />
+        </a>
+
+        <ul class="nav-menu" role="list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Feed</a>
+          </li>
+
+          <li class="nav-item" data-auth="guest">
+            <a href="#" class="nav-link">About</a>
+          </li>
+
+          <li class="nav-item" data-auth="guest">
+            <a href="./account/login.html" class="nav-link nav-link--login">
+              <span class="login-text">Log in</span>
+              <span class="login-icon" aria-hidden="true">
+                <img src="./assets/graphics/log-in-icon.svg" alt="" />
+              </span>
+            </a>
+          </li>
+
+          <li class="nav-item" data-auth="user">
+            <a href="./account/create.html" class="nav-link nav-link--create">
+              <span class="create-text">Create post</span>
+              <span class="create-icon" aria-hidden="true">
+                <img src="./assets/graphics/edit-icon.svg" alt="" />
+              </span>
+            </a>
+          </li>
+
+          <li class="nav-item" data-auth="user">
+            <a href="#" class="nav-link nav-link--logout">
+              <span class="logout-text">Log out</span>
+              <span class="logout-icon" aria-hidden="true">
+                <img src="./assets/graphics/log-out-icon.svg" alt="" />
+              </span>
+            </a>
+          </li>
+
+          <li class="nav-item nav-item--guest-extra" data-auth="guest">
+            <div class="menu-guest-content">
+              <p class="menu-guest-text">
+                Know about a product, platform, or idea we should look at?
+              </p>
+
+              <img
+                src="./assets/graphics/arrow-down-icon-white.svg"
+                alt="arrow down icon"
+              />
+
+              <a href="mailto:tips@innova.com" class="menu-guest-email">
+                tips@innova.com
+              </a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="hamburger" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
     <script type="module" src="../js/pages/create.js"></script>
   </body>
 </html>
