@@ -112,3 +112,20 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
+/* Reset form controls for consistent styling */
+input,
+textarea,
+select,
+button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+}
+
+button {
+  cursor: pointer;
+}
