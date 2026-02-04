@@ -1,3 +1,4 @@
+/* Buttons */
 .btn {
   height: 48px;
   width: 100%;
@@ -6,4 +7,81 @@
   border-radius: 5px;
   font-size: var(--font-size-lg);
   font-weight: var(--font-w-bold);
+}
+
+.btn--medium {
+  max-width: 360px;
+}
+
+.btn:hover {
+  background-color: var(--color-accent);
+  outline: 1px solid var(--color-accent);
+}
+
+/* Card */
+.post-card {
+  max-width: 361px;
+  width: 100%;
+}
+
+.post-card__header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+}
+
+.post-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-w-medium);
+}
+
+.post-card__tag,
+.post-card__date {
+  text-transform: uppercase;
+  font-weight: var(--font-w-light);
+}
+
+.post-card__icon {
+  width: 15px;
+  height: 15px;
+}
+
+.post-card__meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Hover effect */
+.post-card__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent-gradient);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -5;
+}
+
+.post-card:hover .post-card__media::after {
+  opacity: 1;
+}
+
+.post-card__image {
+  transition: transform 0.25s ease;
+  transform: scale(1);
+  position: relative;
+  z-index: -10;
+}
+
+.post-card:hover .post-card__image {
+  transform: scale(1.04);
+}
+
+.post-card a:hover {
+  text-decoration: none;
 }
