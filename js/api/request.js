@@ -1,12 +1,16 @@
 import { API_BASE_URL } from "../config.js";
 
 export async function request(endpoint) {
-  const response = await fetch(`${API_BASE_URL}${endpoint}`);
+  try {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`);
 
-  if (!response.ok) {
-    throw new Error("Request failed");
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error("Network error. Please check your connection.");
   }
-
-  const data = await response.json();
-  return data;
 }

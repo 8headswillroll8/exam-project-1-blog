@@ -14,6 +14,16 @@
     rgba(13, 110, 178, 0.7) 100%
   );
 
+  --color-accent-gradient-light: linear-gradient(
+    180deg,
+    rgba(221, 221, 221, 0.4) 14%,
+    rgba(143, 116, 39, 0.4) 36%,
+    rgba(104, 61, 27, 0.4) 47%,
+    rgba(39, 13, 42, 0.4) 61%,
+    rgba(11, 53, 127, 0.4) 78%,
+    rgba(13, 110, 178, 0.4) 100%
+  );
+
   --color-error: #c35f5f;
   --color-active: #5285b6;
 
@@ -53,6 +63,7 @@
   /* Layout */
   --container-max-width: 72rem; /* 1152px */
   --container-padding: 1rem; /* 16px mobile */
+  --wrapper-max-width: 40rem; /* 640px */
 
   /* Radius */
   --radius: 5px;

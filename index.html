@@ -97,212 +97,29 @@
     </header>
     <main>
       <div class="container">
-        <div class="feed-title">
+        <article class="feed-title">
           <h1>Stories about products, systems, and emerging tech.</h1>
-        </div>
+        </article>
 
-        <!-- Responsive thumbnail grid with DOM-->
+        <!-- Title -->
+        <h2 class="title-small title-small--highlighted">Featured posts</h2>
 
-        <div class="posts-grid">
-          <!-- Test card 1 -->
+        <!-- Carousel with DOM -->
+        <article></article>
 
-          <article class="post-card">
-            <a href="./post/index.html">
-              <div class="post-card__header">
-                <h2 class="post-card__title">
-                  A new app helps you overthink faster
-                </h2>
-                <img
-                  class="post-card__icon"
-                  src="./assets/graphics/arrow-upper-right-icon.svg"
-                  alt="Arrow pointing to upper right corner"
-                />
-              </div>
+        <!-- All posts -->
+        <h2 class="title-small title-small--highlighted">All posts</h2>
 
-              <div class="post-card__media">
-                <img
-                  class="post-card__image"
-                  src="./assets/img/wondering-person.webp"
-                  alt="close up of wondering woman"
-                />
-              </div>
+        <!-- Loading -->
+        <div class="alert" id="posts-loading"></div>
 
-              <div class="post-card__meta">
-                <p class="post-card__tag">productivity-theatre</p>
-                <time class="post-card__date" datetime="2026-01-20"
-                  >20.01.26</time
-                >
-              </div>
-            </a>
-          </article>
-          <!-- Test card end -->
+        <!-- Erro -->
+        <div class="alert alert--error" id="posts-error"></div>
 
-          <!-- Test card 2 -->
+        <!-- Responsive thumbnail grid with DOM -->
+        <div class="posts-grid" id="posts-grid"></div>
 
-          <article class="post-card">
-            <a href="./post/index.html">
-              <div class="post-card__header">
-                <h2 class="post-card__title">
-                  A new app helps you overthink faster
-                </h2>
-                <img
-                  class="post-card__icon"
-                  src="./assets/graphics/arrow-upper-right-icon.svg"
-                  alt="Arrow pointing to upper right corner"
-                />
-              </div>
-
-              <div class="post-card__media">
-                <img
-                  class="post-card__image"
-                  src="./assets/img/wondering-person.webp"
-                  alt="close up of wondering woman"
-                />
-              </div>
-
-              <div class="post-card__meta">
-                <p class="post-card__tag">productivity-theatre</p>
-                <time class="post-card__date" datetime="2026-01-20"
-                  >20.01.26</time
-                >
-              </div>
-            </a>
-          </article>
-          <!-- Test card end -->
-
-          <!-- Test card 3 -->
-
-          <article class="post-card">
-            <a href="./post/index.html">
-              <div class="post-card__header">
-                <h2 class="post-card__title">
-                  A new app helps you overthink faster
-                </h2>
-                <img
-                  class="post-card__icon"
-                  src="./assets/graphics/arrow-upper-right-icon.svg"
-                  alt="Arrow pointing to upper right corner"
-                />
-              </div>
-
-              <div class="post-card__media">
-                <img
-                  class="post-card__image"
-                  src="./assets/img/wondering-person.webp"
-                  alt="close up of wondering woman"
-                />
-              </div>
-
-              <div class="post-card__meta">
-                <p class="post-card__tag">productivity-theatre</p>
-                <time class="post-card__date" datetime="2026-01-20"
-                  >20.01.26</time
-                >
-              </div>
-            </a>
-          </article>
-          <!-- Test card end -->
-
-          <!-- Test card 4 -->
-
-          <article class="post-card">
-            <a href="./post/index.html">
-              <div class="post-card__header">
-                <h2 class="post-card__title">
-                  A new app helps you overthink faster
-                </h2>
-                <img
-                  class="post-card__icon"
-                  src="./assets/graphics/arrow-upper-right-icon.svg"
-                  alt="Arrow pointing to upper right corner"
-                />
-              </div>
-
-              <div class="post-card__media">
-                <img
-                  class="post-card__image"
-                  src="./assets/img/wondering-person.webp"
-                  alt="close up of wondering woman"
-                />
-              </div>
-
-              <div class="post-card__meta">
-                <p class="post-card__tag">productivity-theatre</p>
-                <time class="post-card__date" datetime="2026-01-20"
-                  >20.01.26</time
-                >
-              </div>
-            </a>
-          </article>
-          <!-- Test card end -->
-
-          <!-- Test card 5 -->
-
-          <article class="post-card">
-            <a href="./post/index.html">
-              <div class="post-card__header">
-                <h2 class="post-card__title">
-                  A new app helps you overthink faster
-                </h2>
-                <img
-                  class="post-card__icon"
-                  src="./assets/graphics/arrow-upper-right-icon.svg"
-                  alt="Arrow pointing to upper right corner"
-                />
-              </div>
-
-              <div class="post-card__media">
-                <img
-                  class="post-card__image"
-                  src="./assets/img/wondering-person.webp"
-                  alt="close up of wondering woman"
-                />
-              </div>
-
-              <div class="post-card__meta">
-                <p class="post-card__tag">productivity-theatre</p>
-                <time class="post-card__date" datetime="2026-01-20"
-                  >20.01.26</time
-                >
-              </div>
-            </a>
-          </article>
-          <!-- Test card end -->
-
-          <!-- Test card 6 -->
-
-          <article class="post-card">
-            <a href="./post/index.html">
-              <div class="post-card__header">
-                <h2 class="post-card__title">
-                  A new app helps you overthink faster
-                </h2>
-                <img
-                  class="post-card__icon"
-                  src="./assets/graphics/arrow-upper-right-icon.svg"
-                  alt="Arrow pointing to upper right corner"
-                />
-              </div>
-
-              <div class="post-card__media">
-                <img
-                  class="post-card__image"
-                  src="./assets/img/wondering-person.webp"
-                  alt="close up of wondering woman"
-                />
-              </div>
-
-              <div class="post-card__meta">
-                <p class="post-card__tag">productivity-theatre</p>
-                <time class="post-card__date" datetime="2026-01-20"
-                  >20.01.26</time
-                >
-              </div>
-            </a>
-          </article>
-          <!-- Test card end -->
-        </div>
-
+        <!-- Load more button -->
         <div class="load-more">
           <button class="btn btn--medium">Load more</button>
         </div>
@@ -342,6 +159,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="./js/pages/feed.js"></script>
+    <script type="module" src="./js/pages/feed.js" defer></script>
   </body>
 </html>
