@@ -29,7 +29,7 @@
             class="logo"
             src="../assets/graphics/innova-wordmark.svg"
             data-dark="./assets/graphics/innova-wordmark.svg"
-            data-light="./assets/graphics/innova-wordmark-white.svg"
+            data-light="../assets/graphics/innova-wordmark-white.svg"
             alt="Innova logo wordmark"
           />
         </a>
@@ -56,7 +56,7 @@
             <a href="./account/create.html" class="nav-link nav-link--create">
               <span class="create-text">Create post</span>
               <span class="create-icon" aria-hidden="true">
-                <img src="./assets/graphics/edit-icon.svg" alt="" />
+                <img src="../assets/graphics/edit-icon.svg" alt="" />
               </span>
             </a>
           </li>
@@ -65,7 +65,7 @@
             <a href="#" class="nav-link nav-link--logout">
               <span class="logout-text">Log out</span>
               <span class="logout-icon" aria-hidden="true">
-                <img src="./assets/graphics/log-out-icon.svg" alt="" />
+                <img src="../assets/graphics/log-out-icon.svg" alt="" />
               </span>
             </a>
           </li>
@@ -77,7 +77,7 @@
               </p>
 
               <img
-                src="./assets/graphics/arrow-down-icon-white.svg"
+                src="../assets/graphics/arrow-down-icon-white.svg"
                 alt="arrow down icon"
               />
 
@@ -97,9 +97,11 @@
     </header>
     <main>
       <article class="container">
-        <form class="wrapper">
+        <form class="wrapper" novalidate>
+          <!-- Error on submit -->
+          <div class="alert alert--error" id="login-error"></div>
           <h1 class="title-medium">Log in</h1>
-          <!-- title -->
+          <!-- Email -->
           <label for="email">E-mail</label>
           <input
             type="email"
@@ -107,8 +109,9 @@
             name="email"
             placeholder="you@example.com"
           />
+          <p id="email-error" class="input-error"></p>
 
-          <!-- tag(s) -->
+          <!-- Password -->
           <label for="password">Password</label>
           <input
             type="password"
@@ -116,6 +119,7 @@
             name="password"
             placeholder="Create a password"
           />
+          <p id="password-error" class="input-error"></p>
 
           <!-- Button -->
           <button class="btn" id="login-btn" type="submit">Log in</button>

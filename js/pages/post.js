@@ -2,9 +2,9 @@ import { renderPostSingle } from "../ui/renderPostSingle.js";
 import { getById } from "../api/posts.js";
 
 const containerEl = document.querySelector(".post-single");
-const loadingEl = document.querySelector(".post-loading");
-const errorEl = document.querySelector(".post-error");
-const shareBtn = document.querySelector(".share-btn");
+const loadingEl = document.querySelector("post-loading");
+const errorEl = document.querySelector("post-error");
+const shareBtn = document.querySelector("share-btn");
 
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
