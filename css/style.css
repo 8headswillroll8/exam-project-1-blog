@@ -336,7 +336,11 @@
 @media (min-width: 1024px) {
   .post-single {
     padding: var(--space-4);
-    gap: var(--space-7);
+    gap: var(--space-6);
+  }
+
+  .post-single {
+    padding-bottom: var(--space-10);
   }
 }
 
