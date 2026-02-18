@@ -36,7 +36,7 @@
 
         <ul class="nav-menu" role="list">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Feed</a>
+            <a href="/index.html" class="nav-link">Feed</a>
           </li>
 
           <li class="nav-item" data-auth="guest">
@@ -53,7 +53,7 @@
           </li>
 
           <li class="nav-item" data-auth="user">
-            <a href="./account/create.html" class="nav-link nav-link--create">
+            <a href="/post/create.html" class="nav-link nav-link--create">
               <span class="create-text">Create post</span>
               <span class="create-icon" aria-hidden="true">
                 <img src="../assets/graphics/edit-icon.svg" alt="" />
@@ -98,27 +98,46 @@
     <main>
       <article class="container">
         <form class="wrapper">
+          <div class="alert alert--error" id="register-error"></div>
           <h1 class="title-medium">Register</h1>
-          <!-- title -->
+          <!-- email -->
           <label for="email">E-mail</label>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="you@example.com"
+            autocomplete="email"
           />
+          <p id="email-error" class="input-error"></p>
 
-          <!-- tag(s) -->
+          <!-- password -->
           <label for="password">Password</label>
           <input
             type="password"
             id="password"
             name="password"
             placeholder="Create a password"
+            autocomplete="new-password"
           />
+          <p id="password-error" class="input-error"></p>
+
+          <!-- confirm password -->
+          <label for="confirm-password">Confirm password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirmPassword"
+            placeholder="Confirm password"
+            autocomplete="new-password"
+          />
+          <p id="confirm-password-error" class="input-error"></p>
 
           <!-- Button -->
-          <button class="btn" id="login-btn" type="submit">Log in</button>
+          <button class="btn" id="register-btn" type="submit">
+            <span class="btn-text">Register</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
 
           <!-- Auth switch text -->
           <div class="auth__switch">
@@ -134,12 +153,12 @@
       <div class="container container__footer">
         <div class="footer__signup">
           <h1 class="footer__title">Stay up to date. Join our newsletter</h1>
-          <label for="email"></label>
+          <label for="newsletter-email"></label>
           <input
             type="email"
-            id="email"
-            autocomplete="given-name"
+            id="newsletter-email"
             placeholder="Enter your e-mail"
+            autocomplete="email"
           />
         </div>
 

@@ -1,4 +1,5 @@
 import "../ui/header.js";
+import { loginUser } from "../api/auth.js";
 
 // ===== Elements =====
 const form = document.querySelector("form");
@@ -10,10 +11,11 @@ const passwordInput = document.querySelector("#password");
 const passwordError = document.querySelector("#password-error");
 
 const loginError = document.querySelector("#login-error");
+const loginBtn = document.querySelector("#login-btn");
 
 // ===== "Touched" flags =====
-// Used to avoid showing errors while the user is typing for the first time.
-// After the first blur or after a failed submit, we validate on input too.
+// Used to avoid showing errors while the user is typing the first time.
+// After blur or a failed submit, validation runs on input as well.
 let emailTouched = false;
 let passwordTouched = false;
 
@@ -61,7 +63,7 @@ function validatePassword() {
 }
 
 // ===== Field events =====
-// On blur, mark touched and validate (this is when errors first appear).
+// Blur shows errors for the first time
 emailInput.addEventListener("blur", () => {
   emailTouched = true;
   validateEmail();
@@ -72,8 +74,7 @@ passwordInput.addEventListener("blur", () => {
   validatePassword();
 });
 
-// On input, only validate after the field has been touched.
-// This lets errors clear immediately while the user fixes them.
+// Input clears errors live, but only after the field was touched
 emailInput.addEventListener("input", () => {
   if (!emailTouched) return;
   validateEmail();
@@ -87,31 +88,57 @@ passwordInput.addEventListener("input", () => {
 // ===== Submit handler =====
 form.addEventListener("submit", onSubmit);
 
-function onSubmit(event) {
+async function onSubmit(event) {
   event.preventDefault();
 
-  // After a submit attempt, treat fields as touched
-  // so live fixes clear errors instantly.
+  // After submit attempt, treat both fields as touched
+  // so fixes clear errors immediately
   emailTouched = true;
   passwordTouched = true;
 
-  // Clear the form-level error alert
+  // Clear form-level error
   loginError.textContent = "";
   loginError.classList.remove("is-visible");
 
-  // Validate everything as the final gate
+  // Final validation gate
   const emailOk = validateEmail();
   const passwordOk = validatePassword();
 
-  // Stop if invalid and show a general message at the top
   if (!emailOk || !passwordOk) {
     loginError.textContent = "Please correct the highlighted fields.";
     loginError.classList.add("is-visible");
     return;
   }
 
-  // Next step
-  // 1) Send login request
-  // 2) Store access token + profile name
-  // 3) Redirect to feed page
+  // ===== Loading state ON =====
+  // Spinner appears, button disables
+  loginBtn.classList.add("is-loading");
+  loginBtn.disabled = true;
+
+  try {
+    // Send login request
+    const result = await loginUser(
+      emailInput.value.trim(),
+      passwordInput.value.trim(),
+    );
+
+    // Successful login
+    const { accessToken, name } = result.data;
+
+    // Store session
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("profileName", name);
+
+    // Redirect to feed
+    window.location.href = "/index.html";
+  } catch (error) {
+    // Show API error
+    loginError.textContent = error.message;
+    loginError.classList.add("is-visible");
+  } finally {
+    // ===== Loading state OFF =====
+    // Always runs, success or error
+    loginBtn.classList.remove("is-loading");
+    loginBtn.disabled = false;
+  }
 }

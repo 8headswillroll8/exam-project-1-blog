@@ -101,6 +101,7 @@
           <!-- Error on submit -->
           <div class="alert alert--error" id="login-error"></div>
           <h1 class="title-medium">Log in</h1>
+
           <!-- Email -->
           <label for="email">E-mail</label>
           <input
@@ -122,7 +123,10 @@
           <p id="password-error" class="input-error"></p>
 
           <!-- Button -->
-          <button class="btn" id="login-btn" type="submit">Log in</button>
+          <button class="btn" id="login-btn" type="submit">
+            <span class="btn-text">Log in</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
 
           <!-- Auth switch text -->
           <div class="auth__switch">
