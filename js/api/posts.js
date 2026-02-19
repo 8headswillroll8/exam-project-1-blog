@@ -15,3 +15,16 @@ export async function createPost(payload) {
     body: JSON.stringify(payload),
   });
 }
+
+export async function updatePost(id, payload) {
+  return request(`/blog/posts/${BLOG_NAME}/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function deletePost(id) {
+  return request(`/blog/posts/${BLOG_NAME}/${id}`, {
+    method: "DELETE",
+  });
+}
