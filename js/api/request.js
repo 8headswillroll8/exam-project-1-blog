@@ -1,16 +1,27 @@
 import { API_BASE_URL } from "../config.js";
 
-export async function request(endpoint) {
-  try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`);
+export async function request(endpoint, options = {}) {
+  const token = localStorage.getItem("accessToken");
 
-    if (!response.ok) {
-      throw new Error(`Request failed: ${response.status}`);
-    }
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    method: options.method || "GET",
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(options.headers || {}),
+    },
+    body: options.body,
+  });
 
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    throw new Error("Network error. Please check your connection.");
+  const result = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const message =
+      result?.errors?.[0]?.message ||
+      result?.message ||
+      `Request failed: ${response.status}`;
+    throw new Error(message);
   }
+
+  return result;
 }

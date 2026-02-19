@@ -36,7 +36,7 @@
 
         <ul class="nav-menu" role="list">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Feed</a>
+            <a href="/index.html" class="nav-link">Feed</a>
           </li>
 
           <li class="nav-item" data-auth="guest">
@@ -97,7 +97,7 @@
     </header>
     <main>
       <article class="container">
-        <form class="wrapper">
+        <form class="wrapper" novalidate>
           <h1 class="title-medium">Create post</h1>
           <!-- title -->
           <label for="title">Title</label>
@@ -107,6 +107,7 @@
             name="title"
             placeholder="Enter a descriptive title"
           />
+          <p id="title-error" class="input-error"></p>
 
           <!-- tag(s) -->
           <label for="tag">Tag(s)</label>
@@ -116,6 +117,7 @@
             name="tag"
             placeholder="Use one or two tags. Separate with commas."
           />
+          <p id="tag-error" class="input-error"></p>
 
           <!-- Image URL -->
           <label for="image">Image URL</label>
@@ -125,6 +127,7 @@
             name="image"
             placeholder="https://example.com/image.jpg"
           />
+          <p id="img-error" class="input-error"></p>
 
           <!-- Body -->
           <label for="body">Body</label>
@@ -134,9 +137,13 @@
             name="body"
             placeholder="Write your post here"
           ></textarea>
+          <p id="body-error" class="input-error"></p>
 
           <!-- Button -->
-          <button class="btn" id="publish-btn" type="submit">Publish</button>
+          <button class="btn" id="publish-btn" type="submit">
+            <span class="btn-text">Publish</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
         </form>
       </article>
     </main>
