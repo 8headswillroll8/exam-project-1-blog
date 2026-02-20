@@ -152,7 +152,7 @@ async function onSubmit(event) {
 
     await registerUser({ name, email, password });
 
-    window.location.href = "/account/login.html";
+    window.location.href = "../account/login.html";
   } catch (error) {
     registerError.textContent = error.message;
     registerError.classList.add("is-visible");

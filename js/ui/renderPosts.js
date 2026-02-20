@@ -68,7 +68,7 @@ export function renderPosts(containerEl, posts) {
       event.stopPropagation();
 
       const id = icon.dataset.editId;
-      window.location.href = `./post/edit.html?id=${id}`;
+      window.location.href = `post/edit.html?id=${id}`;
     });
   }
 }

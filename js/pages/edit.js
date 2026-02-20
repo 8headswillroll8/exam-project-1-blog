@@ -17,7 +17,7 @@ const accessToken = localStorage.getItem("accessToken");
 const profileName = localStorage.getItem("profileName");
 
 if (!accessToken || !profileName) {
-  window.location.href = "/account/login.html";
+  window.location.href = "../account/login.html";
 }
 
 // ===== Get id from URL =====
@@ -25,7 +25,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 if (!id) {
-  window.location.href = "/index.html";
+  window.location.href = "../index.html";
 }
 
 // ===== Load existing post =====
@@ -46,7 +46,7 @@ async function loadPost() {
     imageInput.value = post.media?.url || "";
   } catch (error) {
     alert(error.message);
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   }
 }
 
@@ -89,7 +89,7 @@ async function onSubmit(event) {
     const result = await updatePost(id, payload);
     const updatedId = result?.data?.id || id;
 
-    window.location.href = `/post/index.html?id=${updatedId}`;
+    window.location.href = `../post/index.html?id=${updatedId}`;
   } catch (error) {
     alert(error.message);
   } finally {
@@ -110,7 +110,7 @@ async function onDelete() {
 
   try {
     await deletePost(id);
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   } catch (error) {
     alert(error.message);
   } finally {

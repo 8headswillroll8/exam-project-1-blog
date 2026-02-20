@@ -130,7 +130,7 @@ async function onSubmit(event) {
     localStorage.setItem("profileName", name);
 
     // Redirect to feed
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   } catch (error) {
     // Show API error
     loginError.textContent = error.message;

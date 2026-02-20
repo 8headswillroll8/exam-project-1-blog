@@ -129,7 +129,7 @@ export function initCarousel(posts) {
       event.preventDefault();
       event.stopPropagation();
 
-      window.location.href = `/post/edit.html?id=${icon.dataset.editId}`;
+      window.location.href = `../post/edit.html?id=${icon.dataset.editId}`;
     });
   }
 }

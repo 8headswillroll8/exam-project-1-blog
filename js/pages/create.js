@@ -24,7 +24,7 @@ const accessToken = localStorage.getItem("accessToken");
 const profileName = localStorage.getItem("profileName");
 
 if (!accessToken || !profileName) {
-  window.location.href = "/account/login.html";
+  window.location.href = "../account/login.html";
 }
 
 // ===== Helpers =====
@@ -133,11 +133,11 @@ async function onSubmit(event) {
 
     const id = result?.data?.id;
     if (id) {
-      window.location.href = `/post/index.html?id=${id}`;
+      window.location.href = `../post/index.html?id=${id}`;
       return;
     }
 
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   } catch (error) {
     if (formError) {
       formError.textContent = error.message;

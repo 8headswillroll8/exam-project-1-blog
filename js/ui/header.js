@@ -34,7 +34,7 @@ if (logoutLink) {
     event.preventDefault();
     logout();
     updateAuthUI();
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   });
 }
 
