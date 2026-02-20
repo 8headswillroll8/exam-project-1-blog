@@ -1,6 +1,7 @@
 import "../ui/header.js";
 import { getAllPost } from "../api/posts.js";
 import { renderPosts } from "../ui/renderPosts.js";
+import { initCarousel } from "../ui/carousel.js";
 
 /* DOM elements */
 const loadingEl = document.getElementById("posts-loading");
@@ -23,6 +24,10 @@ async function initFeed() {
     const posts = Array.isArray(response.data) ? response.data : [];
     posts.sort((a, b) => new Date(b.created) - new Date(a.created));
 
+    // Carousel uses the 3 newest
+    initCarousel(posts);
+
+    // Grid uses the 12 newest
     const latest12 = posts.slice(0, 12);
     renderPosts(postsGrid, latest12);
   } catch (err) {

@@ -230,6 +230,70 @@
 }
 
 /* ======= Feed ======= */
+/* Carousel horizontal */
+.carousel__wrapper {
+  margin-top: var(--space-7);
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  gap: var(--space-6);
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+/* default mobile */
+.carousel-viewport {
+  --per-view: 1;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .carousel-viewport {
+    --per-view: 2;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  .carousel-viewport {
+    --per-view: 3;
+  }
+}
+
+.carousel .post-card {
+  flex: 0 0
+    calc((100% - (var(--space-6) * (var(--per-view) - 1))) / var(--per-view));
+  max-width: none;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--space-7) 0;
+}
+
+.arrows button {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-w-bold);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.arrow-back,
+.arrow-more {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
 /* Grid */
 .posts-grid {
   display: grid;
