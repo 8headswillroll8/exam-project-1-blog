@@ -75,6 +75,15 @@
   height: 15px;
 }
 
+.post-card__icon--edit {
+  width: 23px;
+  height: 23px;
+}
+
+.post-card__icon--edit:hover {
+  background-color: var(--color-accent);
+}
+
 .post-card__tag,
 .post-card__date {
   text-transform: uppercase;

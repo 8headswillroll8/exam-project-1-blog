@@ -1,6 +1,10 @@
 export function renderPosts(containerEl, posts) {
   containerEl.innerHTML = "";
 
+  const isLoggedIn =
+    Boolean(localStorage.getItem("accessToken")) &&
+    Boolean(localStorage.getItem("profileName"));
+
   const markup = posts
     .map((post) => {
       const imageUrl = post.media?.url || "./assets/img/fallback.webp";
@@ -8,6 +12,12 @@ export function renderPosts(containerEl, posts) {
       const tag = post.tags?.[0] || "";
       const date = new Date(post.created);
       const displayDate = date.toLocaleDateString("no-NO");
+
+      const iconSrc = isLoggedIn
+        ? "./assets/graphics/edit-icon.svg"
+        : "./assets/graphics/arrow-upper-right-icon.svg";
+
+      const iconAlt = isLoggedIn ? "Edit post" : "Open post";
 
       return `
       <article class="post-card">
@@ -17,9 +27,10 @@ export function renderPosts(containerEl, posts) {
               ${post.title}
             </h2>
             <img
-              class="post-card__icon"
-              src="./assets/graphics/arrow-upper-right-icon.svg"
-              alt="Arrow pointing to upper right corner"
+              class="post-card__icon ${isLoggedIn ? "post-card__icon--edit" : ""}"
+              src="${iconSrc}"
+              alt="${iconAlt}"
+              data-edit-id="${post.id}"
             />
           </div>
 
@@ -44,4 +55,20 @@ export function renderPosts(containerEl, posts) {
     .join("");
 
   containerEl.innerHTML = markup;
+
+  // Only bind once, avoid stacking listeners on re-render
+  if (isLoggedIn && !containerEl.dataset.editBound) {
+    containerEl.dataset.editBound = "true";
+
+    containerEl.addEventListener("click", (event) => {
+      const icon = event.target.closest("[data-edit-id]");
+      if (!icon) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const id = icon.dataset.editId;
+      window.location.href = `./post/edit.html?id=${id}`;
+    });
+  }
 }
