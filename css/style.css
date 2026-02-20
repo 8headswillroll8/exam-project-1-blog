@@ -232,6 +232,8 @@
 /* ======= Feed ======= */
 /* Carousel horizontal */
 .carousel__wrapper {
+  position: relative;
+  z-index: -1;
   margin-top: var(--space-7);
 }
 
