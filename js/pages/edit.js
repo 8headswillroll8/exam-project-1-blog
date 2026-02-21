@@ -1,5 +1,5 @@
 import "../ui/header.js";
-import { getById, updatePost, deletePost } from "../api/posts.js";
+import { getOwnerById, updatePost, deletePost } from "../api/posts.js";
 
 // ===== Elements =====
 const form = document.querySelector("form");
@@ -33,7 +33,7 @@ loadPost();
 
 async function loadPost() {
   try {
-    const result = await getById(id);
+    const result = await getOwnerById(id);
     const post = result.data;
 
     titleInput.value = post.title || "";

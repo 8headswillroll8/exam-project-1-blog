@@ -1,5 +1,5 @@
 import { renderPostSingle } from "../ui/renderPostSingle.js";
-import { getById } from "../api/posts.js";
+import { getPublicById } from "../api/posts.js";
 
 // ===== Elements =====
 const containerEl = document.querySelector(".post-single");
@@ -21,7 +21,7 @@ async function initPost() {
   try {
     loadingEl?.classList.add("is-visible");
 
-    const response = await getById(postId);
+    const response = await getPublicById(postId);
     const post = response.data;
 
     renderPostSingle(containerEl, post);
