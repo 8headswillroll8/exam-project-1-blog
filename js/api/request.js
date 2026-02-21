@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "../config.js";
+import { API_KEY } from "../config.js";
 
 export async function request(endpoint, options = {}) {
   const token = localStorage.getItem("accessToken");
@@ -7,6 +8,7 @@ export async function request(endpoint, options = {}) {
     method: options.method || "GET",
     headers: {
       "Content-Type": "application/json",
+      "X-Noroff-API-Key": API_KEY,
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(options.headers || {}),
     },

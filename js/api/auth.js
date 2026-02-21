@@ -1,10 +1,12 @@
-const API_BASE_URL = "https://v2.api.noroff.dev";
+import { API_BASE_URL } from "../config.js";
+import { API_KEY } from "../config.js";
 
 export async function loginUser(email, password) {
   const response = await fetch(`${API_BASE_URL}/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "X-Noroff-API-Key": API_KEY,
     },
     body: JSON.stringify({ email, password }),
   });
@@ -27,6 +29,7 @@ export async function registerUser({ name, email, password }) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "X-Noroff-API-Key": API_KEY,
     },
     body: JSON.stringify({ name, email, password }),
   });
