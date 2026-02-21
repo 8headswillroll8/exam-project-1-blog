@@ -61,6 +61,8 @@
 
 .post-card__header {
   display: flex;
+  position: relative;
+  z-index: 2;
   justify-content: space-between;
   padding-bottom: var(--space-4);
 }
@@ -108,7 +110,8 @@
   background: var(--color-accent-gradient-light);
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: -5;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .post-card:hover .post-card__media::after {
@@ -119,7 +122,7 @@
   transition: transform 0.25s ease;
   transform: scale(1);
   position: relative;
-  z-index: -10;
+  z-index: 0;
 }
 
 .post-card:hover .post-card__image {
