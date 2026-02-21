@@ -28,7 +28,7 @@ function renderCarousel() {
 
     carouselTrack.innerHTML += `
       <article class="post-card">
-        <a href="../post/index.html?id=${post.id}">
+        <a href="post/index.html?id=${post.id}">
           <div class="post-card__header">
             <h2 class="post-card__title">${post.title}</h2>
             <img
@@ -129,7 +129,7 @@ export function initCarousel(posts) {
       event.preventDefault();
       event.stopPropagation();
 
-      window.location.href = `/post/edit.html?id=${icon.dataset.editId}`;
+      window.location.href = `post/edit.html?id=${icon.dataset.editId}`;
     });
   }
 }
