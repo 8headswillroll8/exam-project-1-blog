@@ -9,6 +9,17 @@ const userItems = document.querySelectorAll('[data-auth="user"]');
 const guestItems = document.querySelectorAll('[data-auth="guest"]');
 const logoutLink = document.querySelector(".nav-link--logout");
 
+// ===== Helpers =====
+function getHomeUrl() {
+  const parts = window.location.pathname.split("/").filter(Boolean);
+
+  if (window.location.hostname.endsWith("github.io") && parts.length > 0) {
+    return `/${parts[0]}/index.html`;
+  }
+
+  return "./index.html";
+}
+
 // ===== Auth UI =====
 function updateAuthUI() {
   const loggedIn = isLoggedIn();
@@ -21,7 +32,6 @@ function updateAuthUI() {
     item.hidden = loggedIn;
   });
 
-  // Optional styling hook
   navbar.classList.toggle("is-auth", loggedIn);
 }
 
@@ -34,7 +44,7 @@ if (logoutLink) {
     event.preventDefault();
     logout();
     updateAuthUI();
-    window.location.href = "../index.html";
+    window.location.href = getHomeUrl();
   });
 }
 
