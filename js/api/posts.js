@@ -48,3 +48,7 @@ export async function deletePost(id) {
     method: "DELETE",
   });
 }
+
+export async function getByNameAndId(name, id) {
+  return request(`/blog/posts/${name}/${id}`);
+}
