@@ -1,5 +1,11 @@
 /* Base layout shell, mobile first */
+main {
+  flex-grow: 1;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
