@@ -119,6 +119,10 @@
 }
 
 .post-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 361 / 451;
+
   transition: transform 0.25s ease;
   transform: scale(1);
   position: relative;
