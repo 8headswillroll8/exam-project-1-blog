@@ -13,7 +13,7 @@ export function renderPosts(containerEl, posts) {
       const date = new Date(post.created);
       const displayDate = date.toLocaleDateString("no-NO");
 
-      const isOwner = isLoggedIn && post.author?.name === profileName;
+      const isOwner = isLoggedIn && post.owner?.name === profileName;
 
       const iconSrc = isOwner
         ? "./assets/graphics/edit-icon.svg"
@@ -71,7 +71,7 @@ export function renderPosts(containerEl, posts) {
       event.stopPropagation();
 
       const id = icon.dataset.editId;
-      window.location.href = `post/edit.html?id=${id}`;
+      window.location.href = `post/edit.html?name=innova&id=${id}`;
     });
   }
 }
