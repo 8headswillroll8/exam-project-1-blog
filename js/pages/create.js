@@ -133,7 +133,7 @@ async function onSubmit(event) {
 
     const id = result?.data?.id;
     if (id) {
-      window.location.href = `../post/index.html?id=${id}`;
+      window.location.href = `../post/index.html?name=${profileName}&id=${id}`;
       return;
     }
 

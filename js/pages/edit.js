@@ -89,7 +89,7 @@ async function onSubmit(event) {
     const result = await updatePost(id, payload);
     const updatedId = result?.data?.id || id;
 
-    window.location.href = `../post/index.html?id=${updatedId}`;
+    window.location.href = `../post/index.html?name=${profileName}&id=${updatedId}`;
   } catch (error) {
     alert(error.message);
   } finally {

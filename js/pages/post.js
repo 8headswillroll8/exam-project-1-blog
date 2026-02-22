@@ -1,5 +1,6 @@
 import { renderPostSingle } from "../ui/renderPostSingle.js";
-import { getPublicById } from "../api/posts.js";
+import { getByNameAndId } from "../api/posts.js";
+import { BLOG_NAME } from "../config.js";
 
 // ===== Elements =====
 const containerEl = document.querySelector(".post-single");
@@ -7,9 +8,10 @@ const loadingEl = document.querySelector("#post-loading");
 const errorEl = document.querySelector("#post-error");
 const shareBtn = document.querySelector("#share-btn");
 
-// ===== Get id from URL =====
+// ===== Get params from URL =====
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
+const name = params.get("name") || BLOG_NAME;
 
 // ===== Init =====
 async function initPost() {
@@ -21,7 +23,7 @@ async function initPost() {
   try {
     loadingEl?.classList.add("is-visible");
 
-    const response = await getPublicById(postId);
+    const response = await getByNameAndId(name, postId);
     const post = response.data;
 
     renderPostSingle(containerEl, post);
